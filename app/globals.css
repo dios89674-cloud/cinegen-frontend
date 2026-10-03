@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #06111f;
+  --color-panel: #0a1a2b;
+  --color-panel2: #0d2237;
+  --color-border: #1b3b59;
+  --color-text: #e8f2ff;
+  --color-muted: #91a8c0;
+  --color-accent: #2788ff;
+  --color-cyan: #45d6f5;
+  --color-green: #29c58b;
+  --color-yellow: #f6b94b;
+  --color-red: #ff6578;
+  --color-surface: #0a1a2b;
+  --color-surface-secondary: #0d2237;
+  --color-text-primary: #e8f2ff;
+  --color-text-secondary: #91a8c0;
+  --color-text-tertiary: #4a6580;
+
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-card: 14px;
+  --radius-button: 10px;
+  --radius-input: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #06111f;
+  color: #e8f2ff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: radial-gradient(ellipse at 70% -20%, #12365a 0, transparent 45%), #06111f;
+  color: #e8f2ff;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b3b59;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(39, 136, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid #2788ff;
+  outline-offset: 2px;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #0a1a2b 25%,
+    #0d2237 50%,
+    #0a1a2b 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(39, 136, 255, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(39, 136, 255, 0.8); }
+}
+
+/* Background */
+.bg-noise {
+  background: radial-gradient(ellipse at 70% -20%, #12365a 0, transparent 45%), #06111f;
+}
+
+/* ── Glassmorphism topbar ───────────────────────────────────────────── */
+.page-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(6, 17, 31, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 18px clamp(18px, 3vw, 42px);
+  margin-bottom: 0;
+}
+
+/* ── Primary button glow ────────────────────────────────────────────── */
+.btn-glow {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39) !important;
+  transition: box-shadow 0.2s, transform 0.15s !important;
+}
+.btn-glow:hover {
+  box-shadow: 0 6px 22px 0 rgba(59, 130, 246, 0.55) !important;
+  transform: translateY(-1px);
+}
+
+/* ── Empty state icon ───────────────────────────────────────────────── */
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 40% 40%, rgba(39, 136, 255, 0.18), rgba(69, 214, 245, 0.06));
+  border: 1px solid rgba(39, 136, 255, 0.18);
+  color: #2788ff;
+  opacity: 0.9;
+  margin: 0 auto 16px;
+}
